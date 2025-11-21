@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Educational Foundation Theme */
+    --background: 0 0% 100%;
+    --foreground: 174 100% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 174 100% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 174 100% 15%;
+
+    /* Primary - Educational Red */
+    --primary: 0 65% 51%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 0 65% 65%;
+    --primary-dark: 0 65% 40%;
+
+    /* Secondary - Deep Forest Green */
+    --secondary: 174 100% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 174 60% 35%;
+    --secondary-dark: 174 100% 10%;
+
+    /* Accent Colors */
+    --accent: 174 40% 92%;
+    --accent-foreground: 174 100% 15%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 65% 51%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(0 65% 51%), hsl(0 65% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(174 100% 15%), hsl(174 60% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 65% 51% / 0.95), hsl(174 100% 15% / 0.95));
+    
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.16);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark Mode - Educational Foundation Theme */
+    --background: 174 100% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 174 80% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 174 80% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Educational Red (adjusted for dark mode) */
+    --primary: 0 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 0 65% 70%;
+    --primary-dark: 0 65% 45%;
+
+    /* Secondary - Deep Forest Green (adjusted) */
+    --secondary: 174 60% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 174 50% 45%;
+    --secondary-dark: 174 80% 20%;
+
+    /* Accent Colors */
+    --accent: 174 50% 20%;
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 174 40% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 174 40% 25%;
+    --input: 174 40% 25%;
+    --ring: 0 65% 55%;
+
+    /* Custom Design Tokens for Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(0 65% 55%), hsl(0 65% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(174 60% 35%), hsl(174 50% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 65% 55% / 0.9), hsl(174 60% 35% / 0.9));
+    
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+}
