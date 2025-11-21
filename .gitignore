@@ -1,2 +1,4 @@
 .env
 .ebv.local
+server/.env
+server/.env.local
